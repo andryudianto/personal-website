@@ -1,20 +1,11 @@
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import { create } from 'zustand'
+import useCounter from './stores/count.store'
 import './App.css'
 
-type Store = {
-  count: number
-  inc: () => void
-}
-
 function App() {
-  const useStore = create<Store>()((set) => ({
-    count: 1,
-    inc: () => set((state) => ({ count: state.count + 1 })),
-  }))
 
-  const { count, inc } = useStore()
+  const { count, inc } = useCounter()
 
   return (
     <>
